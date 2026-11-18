@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f8f3f0">
+  <title>Painel administrativo · Loja</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#302727;--rose:#a7676d;--pale:#f8f3f0;--line:#eadfdb;--muted:#817775;--white:#fffdfa;--green:#58705d;--red:#a44d4d}
+    *{box-sizing:border-box}body{margin:0;background:#f8f6f4;color:var(--ink);font:13px 'DM Sans',sans-serif}button,input,select{font:inherit}button{cursor:pointer}
+    .top{height:72px;background:var(--white);border-bottom:1px solid var(--line);padding:0 5%;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:2}.brand{font:600 25px 'Playfair Display',serif;color:var(--ink);text-decoration:none}.brand span{color:var(--rose)}.top-right{display:flex;align-items:center;gap:18px}.admin-tag{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#765457;background:#f8efed;padding:8px 10px;border-radius:20px}.top a.back{color:#6f5c5a;text-decoration:none;font-size:11px}
+    .layout{max-width:1160px;padding:34px 24px 60px;margin:auto}.intro{display:flex;justify-content:space-between;align-items:end;margin-bottom:24px}.eyebrow{text-transform:uppercase;font-size:9px;letter-spacing:.17em;color:var(--rose);font-weight:700}.intro h1{font:500 34px 'Playfair Display',serif;margin:8px 0 5px}.intro p{margin:0;color:var(--muted);font-size:11px}.notice{padding:13px 15px;border:1px solid #eadbd5;background:#fbf3ef;border-radius:4px;color:#765457;font-size:11px;line-height:1.6;margin-bottom:20px}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px}.stat,.panel{background:white;border:1px solid var(--line);border-radius:5px}.stat{padding:17px 19px}.stat-label{font-size:10px;color:var(--muted)}.stat-value{font:500 26px 'Playfair Display',serif;margin-top:8px}.panel{padding:20px;margin-bottom:17px}.panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:17px}.panel h2{font:500 21px 'Playfair Display',serif;margin:0}.subtle{font-size:10px;color:var(--muted)}
+    .form-grid{display:grid;grid-template-columns:1.35fr 1fr 1fr 1fr;gap:12px}.field label{display:block;font-size:10px;color:#746966;margin-bottom:6px}.field input,.field select{width:100%;height:40px;border:1px solid var(--line);border-radius:3px;padding:0 10px;background:#fff;color:var(--ink);outline-color:#c69296}.form-actions{display:flex;align-items:center;gap:12px;margin-top:14px}.primary{border:0;border-radius:3px;background:var(--rose);color:white;padding:12px 17px;font-size:10px;letter-spacing:.04em}.primary:hover{background:#87565b}.cancel{border:0;background:none;color:var(--muted);font-size:10px;padding:10px}.status{font-size:10px;color:var(--green)}
+    .table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:650px}th{text-align:left;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-size:9px;font-weight:600;padding:0 10px 11px;border-bottom:1px solid var(--line)}td{padding:13px 10px;border-bottom:1px solid #f1ebe8;font-size:11px}tbody tr:last-child td{border-bottom:0}.product-name{font-weight:600}.category{color:var(--muted)}.price{font-weight:600}.actions{white-space:nowrap;text-align:right}.text-btn{border:0;background:none;color:#765457;font-size:10px;padding:6px}.text-btn.delete{color:var(--red)}.empty{text-align:center;padding:34px 12px;color:var(--muted);font-size:11px}.empty strong{display:block;color:var(--ink);font-size:13px;margin-bottom:6px}.footer-note{text-align:center;color:#9a8f8c;font-size:10px;margin-top:24px}
+    @media(max-width:760px){.top{height:64px;padding:0 5%}.top-right{gap:9px}.admin-tag{font-size:8px}.layout{padding:27px 16px 45px}.intro{display:block}.intro h1{font-size:30px}.stats{gap:8px}.stat{padding:13px}.stat-value{font-size:22px}.stat-label{font-size:9px}.panel{padding:16px}.form-grid{grid-template-columns:1fr 1fr}.form-grid .field:first-child{grid-column:1/-1}.panel-head{align-items:start;gap:8px}.subtle{text-align:right}}
+    @media(max-width:420px){.back{font-size:0!important}.back:after{content:'← Loja';font-size:11px}.form-grid{grid-template-columns:1fr}.form-grid .field:first-child{grid-column:auto}.stats{grid-template-columns:1fr}.stat{display:flex;justify-content:space-between;align-items:center}.stat-value{margin:0}}
+  </style>
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="../cliente/catalogo.html">Loja<span>.</span></a>
+    <div class="top-right"><span class="admin-tag">Painel administrativo</span><a class="back" href="../cliente/catalogo.html">← Voltar à loja</a></div>
+  </header>
+  <main class="layout">
+    <div class="intro"><div><span class="eyebrow">Gestão da loja</span><h1>Olá, administradora</h1><p>Gerencie os produtos que aparecem na vitrine.</p></div></div>
+    <div class="notice"><strong>Modo de demonstração:</strong> alterações ficam salvas neste navegador e são compartilhadas com a vitrine aberta no mesmo navegador. Este painel não tem login nem banco de dados.</div>
+    <section class="stats" aria-label="Resumo do catálogo">
+      <div class="stat"><span class="stat-label">Produtos cadastrados</span><div class="stat-value" id="productCount">0</div></div>
+      <div class="stat"><span class="stat-label">Categorias ativas</span><div class="stat-value" id="categoryCount">0</div></div>
+      <div class="stat"><span class="stat-label">Valor médio</span><div class="stat-value" id="averagePrice">R$ 0,00</div></div>
+    </section>
+    <section class="panel" id="productFormPanel">
+      <div class="panel-head"><h2 id="formTitle">Adicionar produto</h2><span class="subtle">Campos com * são obrigatórios</span></div>
+      <form id="productForm">
+        <input type="hidden" id="editIndex" value="">
+        <div class="form-grid">
+          <div class="field"><label for="name">Nome do produto *</label><input id="name" name="name" required maxlength="80" placeholder="Ex.: Hidratante facial"></div>
+          <div class="field"><label for="cat">Categoria *</label><select id="cat" name="cat" required><option value="">Selecione</option><option>Skincare</option><option>Maquiagem</option><option>Corpo & banho</option><option>Cabelos</option></select></div>
+          <div class="field"><label for="price">Preço (R$) *</label><input id="price" name="price" type="number" min="0.01" step="0.01" required placeholder="59,90"></div>
+          <div class="field"><label for="image">Imagem (opcional)</label><input id="image" name="image" placeholder="photo-... do Unsplash"></div>
+        </div>
+        <div class="form-actions"><button class="primary" id="saveButton" type="submit">Adicionar produto</button><button class="cancel" id="cancelEdit" type="button" hidden>Cancelar edição</button><span class="status" id="status" role="status" aria-live="polite"></span></div>
+      </form>
+    </section>
+    <section class="panel">
+      <div class="panel-head"><h2>Produtos da loja</h2><span class="subtle" id="tableCount">0 produtos</span></div>
+      <div class="table-wrap"><table><thead><tr><th>Produto</th><th>Categoria</th><th>Preço</th><th class="actions">Ações</th></tr></thead><tbody id="productRows"></tbody></table><div class="empty" id="emptyState"><strong>Seu catálogo está vazio</strong>Cadastre um produto acima para exibi-lo na vitrine.</div></div>
+    </section>
+    <p class="footer-note">Painel administrativo · Loja de beleza · 2026</p>
+  </main>
+  <script>
+    const STORAGE_KEY='flor-inventory';
+    const form=document.querySelector('#productForm');
+    const rows=document.querySelector('#productRows');
+    const empty=document.querySelector('#emptyState');
+    const money=value=>'R$ '+Number(value||0).toFixed(2).replace('.',',');
+    function getProducts(){try{const value=JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');return Array.isArray(value)?value:[]}catch{return []}}
+    function saveProducts(products){localStorage.setItem(STORAGE_KEY,JSON.stringify(products))}
+    function render(){const products=getProducts();rows.innerHTML=products.map((p,i)=>`<tr><td class="product-name">${escapeHtml(p.name||'Produto sem nome')}</td><td class="category">${escapeHtml(p.cat||'—')}</td><td class="price">${money(p.price)}</td><td class="actions"><button class="text-btn" data-edit="${i}">Editar</button><button class="text-btn delete" data-delete="${i}">Excluir</button></td></tr>`).join('');empty.hidden=products.length>0;document.querySelector('#productCount').textContent=products.length;document.querySelector('#tableCount').textContent=products.length===1?'1 produto':`${products.length} produtos`;document.querySelector('#categoryCount').textContent=new Set(products.map(p=>p.cat).filter(Boolean)).size;const average=products.length?products.reduce((sum,p)=>sum+Number(p.price||0),0)/products.length:0;document.querySelector('#averagePrice').textContent=money(average)}
+    function escapeHtml(value){return String(value).replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]))}
+    function resetForm(){form.reset();document.querySelector('#editIndex').value='';document.querySelector('#formTitle').textContent='Adicionar produto';document.querySelector('#saveButton').textContent='Adicionar produto';document.querySelector('#cancelEdit').hidden=true}
+    form.addEventListener('submit',event=>{event.preventDefault();const products=getProducts();const item={name:form.elements.name.value.trim(),cat:form.elements.cat.value,price:Number(form.elements.price.value),image:form.elements.image.value.trim()};const index=document.querySelector('#editIndex').value;if(index==='')products.push(item);else products[Number(index)]=item;saveProducts(products);render();document.querySelector('#status').textContent=index===''?'Produto adicionado à vitrine.':'Produto atualizado.';resetForm()});
+    rows.addEventListener('click',event=>{const edit=event.target.closest('[data-edit]');const remove=event.target.closest('[data-delete]');const products=getProducts();if(edit){const index=Number(edit.dataset.edit);const item=products[index];form.elements.name.value=item.name||'';form.elements.cat.value=item.cat||'';form.elements.price.value=item.price||'';form.elements.image.value=item.image||'';document.querySelector('#editIndex').value=index;document.querySelector('#formTitle').textContent='Editar produto';document.querySelector('#saveButton').textContent='Salvar alterações';document.querySelector('#cancelEdit').hidden=false;document.querySelector('#status').textContent='';document.querySelector('#name').focus()}if(remove){const index=Number(remove.dataset.delete);const product=products[index];if(!confirm(`Excluir “${product.name}” do catálogo?`))return;products.splice(index,1);saveProducts(products);render();document.querySelector('#status').textContent='Produto removido da vitrine.';if(document.querySelector('#editIndex').value===String(index))resetForm()}});
+    document.querySelector('#cancelEdit').addEventListener('click',()=>{resetForm();document.querySelector('#status').textContent='' });
+    window.addEventListener('storage',event=>{if(event.key===STORAGE_KEY)render()});
+    render();
+  </script>
+</body>
+</html>
